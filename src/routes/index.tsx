@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownRight, Phone, Twitter, Instagram, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
@@ -14,9 +15,9 @@ import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 
-const title = "Aztal — Branding, Web & Marketing for Small Businesses";
+const title = "Aztal — Transforming your business with digital growth";
 const description =
-  "A digital agency for small businesses in Germany, Austria and Switzerland. Branding, web development and marketing with fixed packages and a free intro call within 24 hours.";
+  "We help businesses in Germany, Austria and Switzerland turn clicks into predictable revenue through strategic design and high-converting websites.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,29 +33,29 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const marqueeTop = ["Branding", "Illustrations", "Development", "Animation"];
-const marqueeBottom = ["Digital Marketing", "UI/UX Design", "Copywriting", "Local SEO"];
+const marqueeTop = ["More Enquiries", "Higher Conversion", "Brand Trust", "Revenue Growth"];
+const marqueeBottom = ["Scalable Systems", "Market Dominance", "Qualified Leads", "Predictable Sales"];
 
 const steps = [
   {
     n: "01",
-    title: "Understanding\nthe brief",
-    text: "We listen first: goals, audience, competitors. You leave the call knowing what your presence will cost and what it should return.",
+    title: "Discovering your\nbottlenecks",
+    text: "We identify exactly why you aren't getting enough leads and map out a clear ROI plan for your digital presence.",
   },
   {
     n: "02",
-    title: "Strategy\n& research",
-    text: "Positioning, brand story and channel plan — built for the German-speaking market and sized to your budget.",
+    title: "Architecting\nfor growth",
+    text: "We position your brand to dominate your local market, outshine competitors, and build immediate trust with your audience.",
   },
   {
     n: "03",
-    title: "Design\nprocess",
-    text: "Logo, website and content take shape in short review rounds. You see every step before anything goes live.",
+    title: "Building your\nconversion engine",
+    text: "We design a fast, trustworthy platform built specifically to turn your casual visitors into ready-to-buy customers.",
   },
   {
     n: "04",
-    title: "Launch\n& growth",
-    text: "We ship, measure enquiries and optimise monthly — SEO, ads and content from one team.",
+    title: "Scaling your\nrevenue",
+    text: "We launch the system and continuously optimize your performance to maximize your monthly enquiries and sales.",
   },
 ];
 
@@ -64,7 +65,7 @@ const stats = [
   { value: "94%", label: "Clients who stay" },
 ];
 
-const filters = ["Design", "Development", "Marketing", "Copywriting"];
+const filters = ["Design", "Development", "Marketing"];
 
 const nav = [
   { label: "Home", href: "#top" },
@@ -75,6 +76,8 @@ const nav = [
 ];
 
 function Index() {
+  const [activeFilter, setActiveFilter] = useState("Design");
+
   return (
     <div className="min-h-screen bg-background">
       <header className="pointer-events-none fixed inset-x-0 top-4 z-50 px-4">
@@ -141,7 +144,7 @@ function Index() {
 
           <div className="relative mx-auto flex max-w-4xl flex-col items-center px-5 pb-24 pt-36 text-center md:pb-32 md:pt-44">
             <span className="rounded-full border border-border bg-background/70 px-4 py-1.5 text-[0.62rem] uppercase tracking-[0.24em] text-muted-foreground backdrop-blur">
-              Branding · Web · Marketing
+              Growth · Conversion · Trust
             </span>
 
             <motion.h1
@@ -154,19 +157,18 @@ function Index() {
                   "linear-gradient(to bottom, var(--foreground) 30%, color-mix(in oklab, var(--foreground) 32%, white) 100%)",
               }}
             >
-              One <span className="text-primary">brilliant</span> idea can change your business
+              We build digital systems that bring you more <span className="text-primary">customers</span>
               <span className="text-primary">.</span>
             </motion.h1>
 
 
             <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              A digital agency for small businesses in Germany, Austria and Switzerland. Fixed
-              packages, plain language and a free intro call within 24 hours.
+              Stop worrying about your online presence. We help businesses in Germany, Austria, and Switzerland turn clicks into predictable revenue through strategic design and high-converting websites.
             </p>
 
             <HeroEmailForm className="mt-10 relative z-10" />
 
-            <div className="mt-12 w-full flex justify-center pointer-events-none select-none">
+            <div className="mt-4 w-full flex justify-center pointer-events-none select-none">
               <img
                 src="/hero_flow.svg"
                 alt="Workflow representation"
@@ -217,13 +219,11 @@ function Index() {
           className="mx-auto max-w-7xl px-5 py-20 md:py-28"
         >
           <h2 className="max-w-3xl text-3xl leading-[1.05] sm:text-5xl">
-            Bringing <span className="text-primary">brands</span> to life with strategy and design
+            Stop losing <span className="text-primary">customers</span> to your competitors
             <span className="text-primary">.</span>
           </h2>
           <p className="mt-7 max-w-xl border-l-2 border-primary pl-5 text-sm leading-relaxed text-muted-foreground">
-            Small businesses don't need agency folklore, they need results. For ten years we've
-            helped owners in Germany, Austria and Switzerland solve problems with design — in plain
-            language, with fixed packages, from trades to clinics.
+            Your website shouldn't just look pretty; it needs to act as your best salesperson. For ten years, we've helped businesses across the DACH region build digital assets that consistently generate qualified leads and drive real growth.
           </p>
 
           <div className="mt-14 grid gap-12 md:grid-cols-[1.45fr_1fr] md:items-center">
@@ -309,25 +309,25 @@ function Index() {
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div>
               <h2 className="max-w-xl text-3xl leading-[1.05] sm:text-5xl">
-                We <span className="text-primary">create</span> and innovate
+                Proven <span className="text-primary">results</span> for ambitious businesses
                 <span className="text-primary">.</span>
               </h2>
               <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted-foreground">
-                We love our clients and we love helping them seize opportunities. Together we build
-                ideas that bring enquiries — logos, shops, local SEO and ads.
+                We measure our success by your growth. See how we've helped other businesses build authority, capture more market share, and dramatically increase their inbound requests.
               </p>
             </div>
-            <div className="grid max-w-xs grid-cols-2 gap-2">
-              {filters.map((f, i) => (
-                <span
+            <div className="flex max-w-[20rem] flex-wrap items-center justify-end gap-2">
+              {filters.map((f) => (
+                <button
                   key={f}
-                  className={`rounded-full border px-4 py-2 text-center text-[0.65rem] uppercase tracking-[0.16em] ${i === 0
+                  onClick={() => setActiveFilter(f)}
+                  className={`rounded-full border px-4 py-2 text-center text-[0.65rem] uppercase tracking-[0.16em] transition-colors ${activeFilter === f
                     ? "border-primary text-primary"
-                    : "border-border text-muted-foreground"
+                    : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
                     }`}
                 >
                   ✦ {f}
-                </span>
+                </button>
               ))}
             </div>
           </div>
@@ -400,12 +400,11 @@ function Index() {
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-2 md:items-start md:py-28">
             <div>
               <h2 className="text-3xl leading-[1.05] sm:text-5xl">
-                Any <span className="text-primary">question</span> for us
+                Ready to <span className="text-primary">scale</span> your business
                 <span className="text-primary">?</span>
               </h2>
               <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-                Tell us briefly about your plan. Within 24 hours you'll get an honest assessment
-                with a timeline and a price range — no jargon.
+                Stop leaving money on the table. Tell us where your business is stuck, and within 24 hours you'll get a clear, no-jargon action plan on how we can help you grow.
               </p>
               <ul className="mt-9 space-y-3 text-sm text-muted-foreground">
                 <li>
