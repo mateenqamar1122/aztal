@@ -146,7 +146,7 @@ function Index() {
                 <Button href="/kontakt" size="lg" className="rounded-full px-8 font-semibold shadow-none">
                   Kostenloses Erstgespräch
                 </Button>
-                <Button href="/system" size="lg" variant="secondary" className="rounded-full px-8 font-semibold bg-secondary/10 hover:bg-secondary/20 text-foreground shadow-none">
+                <Button href="/system" size="lg" color="secondary" className="rounded-full px-8 font-semibold bg-secondary/10 hover:bg-secondary/20 text-foreground shadow-none">
                   Unser System entdecken
                 </Button>
               </div>
