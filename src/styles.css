@@ -34,8 +34,8 @@
   --color-ring-offset-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
 
   /* Untitled UI button tokens mapped onto the project palette */
   --color-brand-solid: var(--primary);
@@ -61,27 +61,27 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.26 0.002 0);
-  --surface: oklch(0.97 0.005 250);
-  --surface-2: oklch(0.94 0.008 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.26 0.002 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.26 0.002 0);
-  --primary: oklch(0.53 0.22 262);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.96 0.008 250);
-  --secondary-foreground: oklch(0.26 0.002 0);
-  --muted: oklch(0.96 0.008 250);
-  --muted-foreground: oklch(0.48 0.01 250);
-  --accent: oklch(0.53 0.22 262);
-  --accent-foreground: oklch(0.99 0 0);
+  --background: #F8FCFF;
+  --foreground: #202026;
+  --surface: color-mix(in oklab, #F8FCFF 96%, #003399);
+  --surface-2: color-mix(in oklab, #F8FCFF 92%, #003399);
+  --card: #F8FCFF;
+  --card-foreground: #202026;
+  --popover: #F8FCFF;
+  --popover-foreground: #202026;
+  --primary: #0565FF;
+  --primary-foreground: #ffffff;
+  --secondary: #003399;
+  --secondary-foreground: #ffffff;
+  --muted: color-mix(in oklab, #F8FCFF 90%, #202026);
+  --muted-foreground: color-mix(in oklab, #202026 65%, transparent);
+  --accent: #0565FF;
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.58 0.22 25);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.26 0.002 0 / 14%);
-  --input: oklch(0.26 0.002 0 / 18%);
-  --ring: oklch(0.53 0.22 262);
+  --border: color-mix(in oklab, #202026 14%, transparent);
+  --input: color-mix(in oklab, #202026 18%, transparent);
+  --ring: #0565FF;
   --gradient-glow: radial-gradient(
     circle at 70% 30%,
     color-mix(in oklab, var(--primary) 12%, transparent),

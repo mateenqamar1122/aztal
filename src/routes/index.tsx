@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownRight, Phone, Twitter, Instagram, Linkedin } from "lucide-react";
-import { motion } from "framer-motion";
 
 import { Button } from "@/components/base/buttons/button";
 import { LeadForm } from "@/components/LeadForm";
@@ -33,46 +32,40 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const marqueeTop = ["More Enquiries", "Higher Conversion", "Brand Trust", "Revenue Growth"];
-const marqueeBottom = ["Scalable Systems", "Market Dominance", "Qualified Leads", "Predictable Sales"];
+const marqueeTop = ["Mehr Anfragen", "Höhere Konversion", "Markenvertrauen", "Umsatzwachstum"];
+const marqueeBottom = ["Skalierbare Systeme", "Marktdominanz", "Qualifizierte Leads", "Planbare Verkäufe"];
 
 const steps = [
   {
     n: "01",
-    title: "Discovering your\nbottlenecks",
-    text: "We identify exactly why you aren't getting enough leads and map out a clear ROI plan for your digital presence.",
+    title: "Design",
+    text: "Wir positionieren deine Marke, damit sie den lokalen Markt dominiert, Wettbewerber in den Schatten stellt und sofortiges Vertrauen aufbaut.",
   },
   {
     n: "02",
-    title: "Architecting\nfor growth",
-    text: "We position your brand to dominate your local market, outshine competitors, and build immediate trust with your audience.",
+    title: "Development",
+    text: "Wir entwickeln eine schnelle, vertrauenswürdige Plattform, die speziell darauf ausgelegt ist, aus Besuchern kaufbereite Kunden zu machen.",
   },
   {
     n: "03",
-    title: "Building your\nconversion engine",
-    text: "We design a fast, trustworthy platform built specifically to turn your casual visitors into ready-to-buy customers.",
-  },
-  {
-    n: "04",
-    title: "Scaling your\nrevenue",
-    text: "We launch the system and continuously optimize your performance to maximize your monthly enquiries and sales.",
+    title: "Marketing",
+    text: "Wir starten das System und optimieren kontinuierlich deine Performance, um deine monatlichen Anfragen und Verkäufe zu maximieren.",
   },
 ];
 
 const stats = [
-  { value: "10", label: "Years experience" },
-  { value: "180+", label: "Completed projects" },
-  { value: "94%", label: "Clients who stay" },
+  { value: "10", label: "Jahre Erfahrung" },
+  { value: "180+", label: "Abgeschlossene Projekte" },
+  { value: "94%", label: "Stammkunden" },
 ];
 
 const filters = ["Design", "Development", "Marketing"];
 
 const nav = [
-  { label: "Home", href: "#top" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Work", href: "#work" },
+  { label: "System", href: "/system" },
+  { label: "Pakete", href: "/pakete" },
+  { label: "Arbeiten", href: "/arbeiten" },
+  { label: "Über AZTAL", href: "/ueber-uns" },
 ];
 
 function Index() {
@@ -80,45 +73,36 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="pointer-events-none fixed inset-x-0 top-4 z-50 px-4">
-        <div className="pointer-events-auto mx-auto flex w-full max-w-5xl items-center justify-between gap-4 rounded-full border border-border/70 bg-background/80 py-2 pl-5 pr-2 shadow-[0_10px_40px_-16px_rgba(36,35,35,0.45)] backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
+        <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 border-x border-border">
           <a href="#top" className="flex items-center gap-2 font-display text-lg font-extrabold tracking-tight">
             <img src="/logo_aztal.png" alt="Aztal Logo" className="h-7 w-auto object-contain" />
             <span>Aztal<span className="text-primary">.</span></span>
           </a>
 
-          <div className="hidden items-center gap-6 md:flex">
-            <nav className="flex items-center gap-6 text-[0.7rem] uppercase tracking-[0.16em] text-muted-foreground">
-              {nav.map((item, i) => (
-                <span key={item.label} className="flex items-center gap-6">
-                  <a href={item.href} className="transition-colors hover:text-foreground">
-                    {item.label}
-                  </a>
-                  {i < nav.length - 1 && <span className="text-border">·</span>}
-                </span>
+          <div className="hidden items-center gap-8 md:flex">
+            <nav className="flex items-center gap-8 text-[0.8rem] font-medium text-muted-foreground">
+              {nav.map((item) => (
+                <a key={item.label} href={item.href} className="transition-colors hover:text-foreground">
+                  {item.label}
+                </a>
               ))}
             </nav>
           </div>
 
           <Button
-            href="#contact"
-            size="md"
-            iconLeading={Phone}
-            className="shrink-0 rounded-full px-5"
+            href="/kontakt"
+            size="sm"
+            className="shrink-0 rounded-full px-6 shadow-none"
           >
-            Work with us
+            Kontakt
           </Button>
         </div>
       </header>
 
       <main id="top">
         {/* HERO */}
-        <motion.section 
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          transition={{ duration: 1 }}
-          className="relative overflow-hidden"
-        >
+        <section className="relative overflow-hidden">
           {/* sky backdrop */}
           <img
             src={heroSky}
@@ -142,42 +126,42 @@ function Index() {
             }}
           />
 
-          <div className="relative mx-auto flex max-w-4xl flex-col items-center px-5 pb-24 pt-36 text-center md:pb-32 md:pt-44">
-            <span className="rounded-full border border-border bg-background/70 px-4 py-1.5 text-[0.62rem] uppercase tracking-[0.24em] text-muted-foreground backdrop-blur">
-              Growth · Conversion · Trust
-            </span>
+          <div className="relative mx-auto max-w-7xl border-x border-border px-5 pb-24 pt-36 md:pb-32 md:pt-44">
+            <div className="max-w-4xl">
+              <h1
+                className="mt-7 bg-clip-text text-[2.8rem] tracking-tighter leading-[1.05] text-transparent sm:text-6xl lg:text-[4.5rem] font-semibold"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to bottom, var(--foreground) 30%, color-mix(in oklab, var(--foreground) 32%, white) 100%)",
+                }}
+              >
+                Du brauchst keine weitere Agentur, sondern ein digitales System, das neue <span className="text-primary">Kunden bringt.</span>
+              </h1>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mt-7 bg-clip-text text-[2.6rem] leading-[0.94] text-transparent sm:text-6xl lg:text-7xl"
-              style={{
-                backgroundImage:
-                  "linear-gradient(to bottom, var(--foreground) 30%, color-mix(in oklab, var(--foreground) 32%, white) 100%)",
-              }}
-            >
-              We build digital systems that bring you more <span className="text-primary">customers</span>
-              <span className="text-primary">.</span>
-            </motion.h1>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                AZTAL baut und betreut für dein Unternehmen in Deutschland, Luxemburg und der Nachbarschaft eine vollständige digitale Präsenz — Marke, Website und laufendes Marketing greifen wie ein System ineinander und liefern messbare Anfragen statt leere Klicks.
+              </p>
 
+              <div className="mt-10 flex flex-wrap items-center gap-4 relative z-10">
+                <Button href="/kontakt" size="lg" className="rounded-full px-8 font-semibold shadow-none">
+                  Kostenloses Erstgespräch
+                </Button>
+                <Button href="/system" size="lg" variant="secondary" className="rounded-full px-8 font-semibold bg-secondary/10 hover:bg-secondary/20 text-foreground shadow-none">
+                  Unser System entdecken
+                </Button>
+              </div>
+            </div>
 
-            <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Stop worrying about your online presence. We help businesses in Germany, Austria, and Switzerland turn clicks into predictable revenue through strategic design and high-converting websites.
-            </p>
-
-            <HeroEmailForm className="mt-10 relative z-10" />
-
-            <div className="mt-4 w-full flex justify-center pointer-events-none select-none">
+            <div className="mt-16 w-full flex justify-start pointer-events-none select-none">
               <img
                 src="/hero_flow.svg"
                 alt="Workflow representation"
-                className="w-full max-w-3xl scale-110 md:scale-125 object-contain drop-shadow-md"
+                className="w-full max-w-3xl object-contain drop-shadow-md"
               />
             </div>
 
           </div>
-        </motion.section>
+        </section>
 
 
         {/* MARQUEE */}
@@ -210,20 +194,13 @@ function Index() {
         </section>
 
         {/* ABOUT */}
-        <motion.section 
-          id="about" 
-          initial={{ opacity: 0, y: 50 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mx-auto max-w-7xl px-5 py-20 md:py-28"
-        >
+        <section id="about" className="mx-auto max-w-7xl px-5 py-20 md:py-28 border-x border-border">
           <h2 className="max-w-3xl text-3xl leading-[1.05] sm:text-5xl">
-            Stop losing <span className="text-primary">customers</span> to your competitors
+            Hör auf, <span className="text-primary">Kunden</span> an deine Wettbewerber zu verlieren
             <span className="text-primary">.</span>
           </h2>
           <p className="mt-7 max-w-xl border-l-2 border-primary pl-5 text-sm leading-relaxed text-muted-foreground">
-            Your website shouldn't just look pretty; it needs to act as your best salesperson. For ten years, we've helped businesses across the DACH region build digital assets that consistently generate qualified leads and drive real growth.
+            Deine Website soll nicht nur gut aussehen, sie muss als dein bester Verkäufer agieren. Seit zehn Jahren helfen wir Unternehmen in der gesamten DACH-Region dabei, digitale Werte aufzubauen, die beständig qualifizierte Leads generieren und echtes Wachstum fördern.
           </p>
 
           <div className="mt-14 grid gap-12 md:grid-cols-[1.45fr_1fr] md:items-center">
@@ -251,17 +228,10 @@ function Index() {
               ))}
             </dl>
           </div>
-        </motion.section>
+        </section>
 
         {/* PROCESS */}
-        <motion.section 
-          id="process" 
-          initial={{ opacity: 0, y: 50 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mx-auto max-w-7xl px-5 pb-20"
-        >
+        <section id="process" className="mx-auto max-w-7xl px-5 pb-20 border-x border-border">
           <div className="border-t border-border">
             {steps.map((step, i) => (
               <article
@@ -295,25 +265,18 @@ function Index() {
               </article>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* WORK */}
-        <motion.section 
-          id="work" 
-          initial={{ opacity: 0, y: 50 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mx-auto max-w-7xl px-5 pb-20"
-        >
+        <section id="work" className="mx-auto max-w-7xl px-5 pb-20 border-x border-border border-b">
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div>
               <h2 className="max-w-xl text-3xl leading-[1.05] sm:text-5xl">
-                Proven <span className="text-primary">results</span> for ambitious businesses
+                Nachweisbare <span className="text-primary">Ergebnisse</span> für ambitionierte Unternehmen
                 <span className="text-primary">.</span>
               </h2>
               <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted-foreground">
-                We measure our success by your growth. See how we've helped other businesses build authority, capture more market share, and dramatically increase their inbound requests.
+                Wir messen unseren Erfolg an deinem Wachstum. Sieh, wie wir anderen Unternehmen geholfen haben, Autorität aufzubauen, mehr Marktanteile zu gewinnen und ihre Kundenanfragen drastisch zu steigern.
               </p>
             </div>
             <div className="flex max-w-[20rem] flex-wrap items-center justify-end gap-2">
@@ -386,47 +349,40 @@ function Index() {
               </figcaption>
             </figure>
           </div>
-        </motion.section>
+        </section>
 
         {/* CONTACT */}
-        <motion.section 
-          id="contact" 
-          initial={{ opacity: 0, y: 50 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="grid-bg border-t border-border"
-        >
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-2 md:items-start md:py-28">
+        <section id="contact" className="grid-bg border-t border-border">
+          <div className="mx-auto grid max-w-7xl gap-12 border-x border-border px-5 py-20 md:grid-cols-2 md:items-start md:py-28">
             <div>
               <h2 className="text-3xl leading-[1.05] sm:text-5xl">
-                Ready to <span className="text-primary">scale</span> your business
+                Bereit, dein Geschäft zu <span className="text-primary">skalieren</span>
                 <span className="text-primary">?</span>
               </h2>
               <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-                Stop leaving money on the table. Tell us where your business is stuck, and within 24 hours you'll get a clear, no-jargon action plan on how we can help you grow.
+                Lass kein Geld mehr auf dem Tisch liegen. Sag uns, wo dein Unternehmen feststeckt, und innerhalb von 24 Stunden erhältst du einen klaren, verständlichen Aktionsplan, wie wir dir beim Wachstum helfen können.
               </p>
               <ul className="mt-9 space-y-3 text-sm text-muted-foreground">
                 <li>
-                  <span className="text-primary">✦</span> Fixed packages from €1,900
+                  <span className="text-primary">✦</span> Feste Pakete ab 1.900 €
                 </li>
                 <li>
-                  <span className="text-primary">✦</span> Contacts in Germany, Austria and
-                  Switzerland
+                  <span className="text-primary">✦</span> Kontakte in Deutschland, Österreich und
+                  der Schweiz
                 </li>
                 <li>
-                  <span className="text-primary">✦</span> Hosting, maintenance and support included
+                  <span className="text-primary">✦</span> Hosting, Wartung und Support inklusive
                 </li>
               </ul>
               <CircleBadge className="mt-10 hidden sm:grid" />
             </div>
             <LeadForm />
           </div>
-        </motion.section>
+        </section>
       </main>
 
       <footer className="border-t border-border bg-background">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-5 py-12 text-[0.7rem] uppercase tracking-[0.16em] text-muted-foreground sm:flex-row sm:items-start">
+        <div className="mx-auto flex max-w-7xl border-x border-border flex-col items-center justify-between gap-6 px-5 py-12 text-[0.7rem] uppercase tracking-[0.16em] text-muted-foreground sm:flex-row sm:items-start">
           <div className="flex flex-col items-center gap-4 sm:items-start">
             <div className="flex items-center gap-2 font-display text-base font-extrabold normal-case tracking-tight text-foreground">
               <img src="/logo_aztal.png" alt="Aztal Logo" className="h-6 w-auto object-contain" />
