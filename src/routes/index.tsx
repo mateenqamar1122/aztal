@@ -169,40 +169,122 @@ function Index() {
           </div>
         </section>
 
-        {/* ABOUT */}
+        {/* ABOUT / PROBLEMS & SOLUTIONS */}
         <section id="about" className="mx-auto max-w-7xl px-5 py-20 md:py-28 border-x border-border">
-          <h2 className="max-w-3xl text-3xl leading-[1.05] sm:text-5xl">
-            Hör auf, <span className="text-primary">Kunden</span> an deine Wettbewerber zu verlieren
-            <span className="text-primary">.</span>
-          </h2>
-          <p className="mt-7 max-w-xl border-l-2 border-primary pl-5 text-sm leading-relaxed text-muted-foreground">
-            Deine Website soll nicht nur gut aussehen, sie muss als dein bester Verkäufer agieren. Seit zehn Jahren helfen wir Unternehmen in der gesamten DACH-Region dabei, digitale Werte aufzubauen, die beständig qualifizierte Leads generieren und echtes Wachstum fördern.
-          </p>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight">
+              Hör auf, <span className="text-primary">Kunden</span> an deine Wettbewerber zu verlieren.
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Deine Website soll nicht nur gut aussehen, sie muss als dein bester Verkäufer agieren. Hier ist, wie wir deine größten digitalen Herausforderungen lösen.
+            </p>
+          </div>
 
-          <div className="mt-14 grid gap-12 md:grid-cols-[1.45fr_1fr] md:items-center">
-            <div className="relative">
-              <img
-                src={aboutBlocks}
-                alt="Abstract block structure symbolising a structured brand foundation"
-                width={1200}
-                height={900}
-                loading="lazy"
-                className="w-full rounded-2xl object-cover"
-              />
-              <CircleBadge className="absolute bottom-6 right-6 hidden rounded-full bg-background/70 backdrop-blur sm:grid" />
-            </div>
-            <dl className="space-y-9">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <dt className="font-display text-5xl font-extrabold text-primary">
-                    {stat.value}
-                  </dt>
-                  <dd className="mt-2 text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground">
-                    {stat.label}
-                  </dd>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1 - Wide (col-span-2) */}
+            <div className="md:col-span-2 rounded-3xl bg-surface/30 border border-border p-8 flex flex-col justify-end min-h-[350px] relative overflow-hidden group hover:shadow-lg transition-all">
+              <div className="absolute top-0 left-0 w-full h-3/4 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
+              
+              {/* Abstract Visual Placeholder */}
+              <div className="absolute top-12 left-1/2 -translate-x-1/2 w-full max-w-md flex flex-col items-center gap-4 opacity-80 transition-transform duration-500 group-hover:-translate-y-2 pointer-events-none">
+                <div className="flex items-center gap-4 w-full px-4">
+                  <div className="w-1/3 h-12 bg-background border border-border rounded-xl flex items-center justify-center text-[0.65rem] uppercase tracking-widest text-muted-foreground shadow-sm">Unsichtbar</div>
+                  <div className="flex-1 h-[1px] bg-border relative"><div className="absolute right-0 -top-1 w-2 h-2 rounded-full bg-border" /></div>
+                  <div className="w-12 h-12 shrink-0 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center">
+                    <div className="w-4 h-4 bg-primary rounded-full" />
+                  </div>
+                  <div className="flex-1 h-[1px] bg-border relative"><div className="absolute right-0 -top-1 w-2 h-2 rounded-full bg-border" /></div>
+                  <div className="w-1/3 h-12 bg-background border border-primary/30 rounded-xl flex items-center justify-center text-[0.65rem] uppercase tracking-widest font-semibold text-primary shadow-md">Marktführer</div>
                 </div>
-              ))}
-            </dl>
+              </div>
+
+              <div className="relative z-10 mt-auto">
+                <h3 className="text-xl font-bold mb-2">Vom unsichtbaren Anbieter zum Marktführer</h3>
+                <p className="text-sm text-muted-foreground max-w-md">Viele Unternehmen gehen in der Masse unter. Wir positionieren deine Marke durch gezieltes SEO und Premium-Design so, dass du deine lokale Nische online dominierst.</p>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="rounded-3xl bg-surface/30 border border-border p-8 flex flex-col justify-end min-h-[350px] relative overflow-hidden group hover:shadow-lg transition-all">
+              <div className="absolute top-0 left-0 w-full h-3/4 bg-gradient-to-b from-blue-500/5 to-transparent pointer-events-none" />
+              
+              <div className="absolute top-12 left-1/2 -translate-x-1/2 flex flex-col gap-3 w-3/4 opacity-80 transition-transform duration-500 group-hover:-translate-y-2 pointer-events-none">
+                <div className="w-4/5 h-10 bg-background border border-border rounded-2xl rounded-bl-none self-start shadow-sm" />
+                <div className="w-full h-12 bg-primary text-primary-foreground rounded-2xl rounded-br-none self-end shadow-md flex items-center px-4 text-xs font-medium">Conversion Rate +45%</div>
+              </div>
+
+              <div className="relative z-10 mt-auto">
+                <h3 className="text-xl font-bold mb-2">Klicks in Kunden verwandeln</h3>
+                <p className="text-sm text-muted-foreground">Viel Traffic bringt nichts ohne Conversion. Wir bauen Websites, die Besucher psychologisch fundiert zu Leads machen.</p>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="rounded-3xl bg-surface/30 border border-border p-8 flex flex-col justify-end min-h-[350px] relative overflow-hidden group hover:shadow-lg transition-all">
+              <div className="absolute top-0 left-0 w-full h-3/4 bg-gradient-to-b from-purple-500/5 to-transparent pointer-events-none" />
+              
+              <div className="absolute top-12 left-1/2 -translate-x-1/2 w-48 bg-background border border-border rounded-xl shadow-md p-4 flex flex-col gap-3 opacity-90 transition-transform duration-500 group-hover:-translate-y-2 pointer-events-none">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-primary/20" />
+                  <div className="flex flex-col gap-1.5">
+                    <div className="w-16 h-2 bg-muted rounded-full" />
+                    <div className="w-10 h-2 bg-muted/50 rounded-full" />
+                  </div>
+                </div>
+                <div className="w-full h-8 bg-primary/10 rounded-lg border border-primary/20 flex items-center justify-center text-[10px] text-primary font-semibold">
+                  Neuer qualifizierter Lead
+                </div>
+              </div>
+
+              <div className="relative z-10 mt-auto">
+                <h3 className="text-xl font-bold mb-2">Planbare Anfragen</h3>
+                <p className="text-sm text-muted-foreground">Hoffnung ist keine Strategie. Wir implementieren Systeme, die dir monatlich verlässliche Kundenanfragen liefern.</p>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="rounded-3xl bg-surface/30 border border-border p-8 flex flex-col justify-end min-h-[350px] relative overflow-hidden group hover:shadow-lg transition-all">
+              <div className="absolute top-0 left-0 w-full h-3/4 bg-gradient-to-b from-orange-500/5 to-transparent pointer-events-none" />
+              
+              <div className="absolute top-16 left-1/2 -translate-x-1/2 w-40 flex items-end justify-center gap-2.5 opacity-90 transition-transform duration-500 group-hover:-translate-y-2 pointer-events-none">
+                <div className="w-6 h-8 bg-muted rounded-t-md" />
+                <div className="w-6 h-14 bg-muted rounded-t-md" />
+                <div className="w-6 h-20 bg-primary/40 rounded-t-md" />
+                <div className="w-6 h-28 bg-primary rounded-t-md relative">
+                  <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary">+120%</div>
+                </div>
+              </div>
+
+              <div className="relative z-10 mt-auto">
+                <h3 className="text-xl font-bold mb-2">Datengestützte Skalierung</h3>
+                <p className="text-sm text-muted-foreground">Wir raten nicht, wir messen. Durch klares Tracking optimieren wir deine Performance laufend für maximalen ROI.</p>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="rounded-3xl bg-surface/30 border border-border p-8 flex flex-col justify-end min-h-[350px] relative overflow-hidden group hover:shadow-lg transition-all">
+              <div className="absolute top-0 left-0 w-full h-3/4 bg-gradient-to-b from-green-500/5 to-transparent pointer-events-none" />
+              
+              <div className="absolute top-12 left-1/2 -translate-x-1/2 w-48 flex flex-col gap-3 opacity-90 transition-transform duration-500 group-hover:-translate-y-2 pointer-events-none">
+                <div className="w-full h-10 bg-background border border-border rounded-lg shadow-sm flex items-center justify-between px-3">
+                  <div className="w-20 h-2 bg-muted rounded-full" />
+                  <div className="w-4 h-4 rounded-full bg-green-500/20 flex items-center justify-center"><div className="w-1.5 h-1.5 rounded-full bg-green-500" /></div>
+                </div>
+                <div className="w-full h-10 bg-background border border-border rounded-lg shadow-sm flex items-center justify-between px-3">
+                  <div className="w-16 h-2 bg-muted rounded-full" />
+                  <div className="w-4 h-4 rounded-full bg-green-500/20 flex items-center justify-center"><div className="w-1.5 h-1.5 rounded-full bg-green-500" /></div>
+                </div>
+                <div className="w-full h-10 bg-background border border-border rounded-lg shadow-sm flex items-center justify-between px-3">
+                  <div className="w-12 h-2 bg-muted rounded-full" />
+                  <div className="w-4 h-4 rounded-full bg-green-500/20 flex items-center justify-center"><div className="w-1.5 h-1.5 rounded-full bg-green-500" /></div>
+                </div>
+              </div>
+
+              <div className="relative z-10 mt-auto">
+                <h3 className="text-xl font-bold mb-2">Ein System, kein Chaos</h3>
+                <p className="text-sm text-muted-foreground">Schluss mit unzähligen Agenturen, die nicht kommunizieren. Bei uns bekommst du Design und Marketing nahtlos aus einer Hand.</p>
+              </div>
+            </div>
           </div>
         </section>
 
