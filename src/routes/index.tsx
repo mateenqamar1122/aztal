@@ -102,64 +102,40 @@ function Index() {
 
       <main id="top">
         {/* HERO */}
-        <section className="relative overflow-hidden">
-          {/* sky backdrop */}
-          <img
-            src={heroSky}
-            alt=""
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-90"
-            style={{
-              maskImage:
-                "linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 55%, transparent 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 55%, transparent 100%)",
-            }}
-          />
+        <section className="relative bg-background">
+          <div className="relative mx-auto max-w-7xl border-x border-border overflow-hidden">
+            {/* abstract background constrained to border, placed on the right */}
+            <img
+              src={heroSky}
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute right-0 top-0 h-full w-[80%] max-w-3xl object-cover opacity-80 mix-blend-multiply"
+              style={{
+                maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 40%)",
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 40%)",
+              }}
+            />
 
-          {/* cinematic grey gradient rising from the bottom to mid-text */}
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-[60%]"
-            style={{
-              background:
-                "linear-gradient(to top, color-mix(in oklab, var(--foreground) 26%, transparent) 0%, color-mix(in oklab, var(--foreground) 10%, transparent) 38%, transparent 100%)",
-            }}
-          />
+            <div className="relative z-10 px-5 pb-24 pt-36 md:pb-40 md:pt-48">
+              <div className="max-w-3xl">
+                <h1 className="mt-7 text-[2.8rem] tracking-tight leading-[1.05] sm:text-6xl lg:text-[4.5rem] font-medium text-foreground">
+                  Ein digitales System, das neue Kunden bringt.
+                </h1>
 
-          <div className="relative mx-auto max-w-7xl border-x border-border px-5 pb-24 pt-36 md:pb-32 md:pt-44">
-            <div className="max-w-4xl">
-              <h1
-                className="mt-7 bg-clip-text text-[2.8rem] tracking-tighter leading-[1.05] text-transparent sm:text-6xl lg:text-[4.5rem] font-semibold"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to bottom, var(--foreground) 30%, color-mix(in oklab, var(--foreground) 32%, white) 100%)",
-                }}
-              >
-                Du brauchst keine weitere Agentur, sondern ein digitales System, das neue <span className="text-primary">Kunden bringt.</span>
-              </h1>
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                  AZTAL baut und betreut für dein Unternehmen in Deutschland, Luxemburg und der Nachbarschaft eine vollständige digitale Präsenz — Marke, Website und laufendes Marketing greifen wie ein System ineinander und liefern messbare Anfragen statt leere Klicks.
+                </p>
 
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                AZTAL baut und betreut für dein Unternehmen in Deutschland, Luxemburg und der Nachbarschaft eine vollständige digitale Präsenz — Marke, Website und laufendes Marketing greifen wie ein System ineinander und liefern messbare Anfragen statt leere Klicks.
-              </p>
-
-              <div className="mt-10 flex flex-wrap items-center gap-4 relative z-10">
-                <Button href="/kontakt" size="lg" className="rounded-full px-8 font-semibold shadow-none">
-                  Kostenloses Erstgespräch
-                </Button>
-                <Button href="/system" size="lg" color="secondary" className="rounded-full px-8 font-semibold bg-secondary/10 hover:bg-secondary/20 text-foreground shadow-none">
-                  Unser System entdecken
-                </Button>
+                <div className="mt-10 flex flex-wrap items-center gap-4 relative z-10">
+                  <Button href="/kontakt" size="lg" className="rounded-full px-8 font-medium shadow-none bg-blue-600 hover:bg-blue-700 text-white">
+                    Kostenloses Erstgespräch
+                  </Button>
+                  <Button href="/system" size="lg" color="secondary" className="rounded-full px-8 font-medium bg-secondary/10 hover:bg-secondary/20 text-foreground shadow-none">
+                    Unser System entdecken
+                  </Button>
+                </div>
               </div>
             </div>
-
-            <div className="mt-16 w-full flex justify-start pointer-events-none select-none">
-              <img
-                src="/hero_flow.svg"
-                alt="Workflow representation"
-                className="w-full max-w-3xl object-contain drop-shadow-md"
-              />
-            </div>
-
           </div>
         </section>
 
@@ -231,72 +207,84 @@ function Index() {
         </section>
 
         {/* PROCESS */}
-        <section id="process" className="mx-auto max-w-7xl px-5 pb-20 border-x border-border">
-          <div className="border-t border-border">
+        <section id="process" className="mx-auto max-w-7xl px-5 py-24 border-x border-border">
+          <div className="flex flex-col items-center text-center">
+            <span className="rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-widest text-primary">
+              Prozess
+            </span>
+            <h2 className="mt-6 text-3xl font-semibold sm:text-5xl">
+              Dein Weg zum <span className="text-primary">Erfolg</span>
+            </h2>
+          </div>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
             {steps.map((step, i) => (
-              <article
+              <div
                 key={step.n}
-                className={`group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 border-b border-border py-12 md:grid-cols-[1.1fr_1fr_auto] ${i % 2 === 1 ? "bg-surface/40" : ""
-                  }`}
+                className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-border bg-background p-2 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
               >
-                <div className="relative min-w-0 pl-1">
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute -top-4 left-0 select-none font-display text-6xl font-extrabold text-foreground/[0.07] sm:text-7xl"
-                  >
-                    {step.n}
-                  </span>
-                  <h3 className="relative whitespace-pre-line text-xl leading-tight sm:text-3xl">
+                {/* Visual Area */}
+                <div className="relative mb-6 h-56 w-full rounded-[1.5rem] bg-surface/50 border border-border/50 flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-50" />
+                  
+                  {/* Abstract UI/Number placeholder */}
+                  <div className="relative flex items-center justify-center w-24 h-24 rounded-full bg-background shadow-sm border border-border">
+                    <span className="font-display text-4xl font-extrabold text-foreground/20 group-hover:text-primary transition-colors">
+                      {step.n}
+                    </span>
+                  </div>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute top-4 left-4 flex gap-1.5">
+                    <div className="h-2 w-2 rounded-full bg-border" />
+                    <div className="h-2 w-2 rounded-full bg-border" />
+                  </div>
+                </div>
+
+                {/* Text Area */}
+                <div className="px-6 pb-8">
+                  <h3 className="text-2xl font-semibold">
                     {step.title}
                     <span className="text-primary">.</span>
                   </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {step.text}
+                  </p>
                 </div>
-                <p className="col-span-2 max-w-sm text-sm leading-relaxed text-muted-foreground md:col-span-1">
-                  {step.text}
-                </p>
-                <span
-                  className={`grid h-14 w-14 shrink-0 place-items-center rounded-full border transition-colors sm:h-16 sm:w-16 ${i === 1
-                    ? "glow border-primary bg-primary text-primary-foreground"
-                    : "border-border text-muted-foreground group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground"
-                    }`}
-                >
-                  <ArrowDownRight className="h-5 w-5" />
-                </span>
-              </article>
+              </div>
             ))}
           </div>
         </section>
 
         {/* WORK */}
-        <section id="work" className="mx-auto max-w-7xl px-5 pb-20 border-x border-border border-b">
-          <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+        <section id="work" className="mx-auto max-w-7xl px-5 pt-10 pb-20 border-x border-border border-b">
+          <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-start">
             <div>
-              <h2 className="max-w-xl text-3xl leading-[1.05] sm:text-5xl">
-                Nachweisbare <span className="text-primary">Ergebnisse</span> für ambitionierte Unternehmen
-                <span className="text-primary">.</span>
+              <h2 className="max-w-xl text-[2.5rem] tracking-tight leading-[1.05] sm:text-6xl font-semibold">
+                Nachweisbare <span className="text-primary">Ergebnisse</span><br />für ambitionierte<br />Unternehmen<span className="text-primary">.</span>
               </h2>
-              <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-lg text-sm leading-relaxed text-muted-foreground">
                 Wir messen unseren Erfolg an deinem Wachstum. Sieh, wie wir anderen Unternehmen geholfen haben, Autorität aufzubauen, mehr Marktanteile zu gewinnen und ihre Kundenanfragen drastisch zu steigern.
               </p>
             </div>
-            <div className="flex max-w-[20rem] flex-wrap items-center justify-end gap-2">
+            <div className="flex max-w-[22rem] flex-wrap items-center justify-end gap-3 mt-2">
               {filters.map((f) => (
                 <button
                   key={f}
                   onClick={() => setActiveFilter(f)}
-                  className={`rounded-full border px-4 py-2 text-center text-[0.65rem] uppercase tracking-[0.16em] transition-colors ${activeFilter === f
+                  className={`rounded-full border px-5 py-2.5 text-center text-[0.65rem] font-medium uppercase tracking-[0.16em] transition-colors ${activeFilter === f
                     ? "border-primary text-primary"
                     : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
                     }`}
                 >
-                  ✦ {f}
+                  + {f}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="mt-12 grid gap-4 md:grid-cols-3 md:grid-rows-2">
-            <figure className="group relative overflow-hidden rounded-2xl md:row-span-2">
+          <div className="mt-16 grid gap-6 md:grid-cols-3 md:grid-rows-2">
+            <figure className="group relative overflow-hidden rounded-2xl md:row-span-2 bg-surface/50 min-h-[400px]">
               <img
                 src={work1}
                 alt="Project: brand relaunch for a carpentry business"
@@ -305,11 +293,11 @@ function Index() {
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <figcaption className="absolute bottom-4 left-4 rounded-full bg-background/80 px-4 py-2 text-[0.65rem] uppercase tracking-[0.18em] backdrop-blur">
+              <figcaption className="absolute bottom-6 left-6 rounded-full bg-background/90 px-4 py-2.5 text-[0.65rem] font-medium uppercase tracking-[0.18em] backdrop-blur">
                 Brand relaunch — Bergmann Carpentry
               </figcaption>
             </figure>
-            <figure className="group relative overflow-hidden rounded-2xl md:row-span-2">
+            <figure className="group relative overflow-hidden rounded-2xl md:row-span-2 bg-surface/50 min-h-[400px]">
               <img
                 src={work2}
                 alt="Project: website for a clinic in Vienna"
@@ -318,11 +306,11 @@ function Index() {
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <figcaption className="absolute bottom-4 left-4 rounded-full bg-background/80 px-4 py-2 text-[0.65rem] uppercase tracking-[0.18em] backdrop-blur">
+              <figcaption className="absolute bottom-6 left-6 rounded-full bg-background/90 px-4 py-2.5 text-[0.65rem] font-medium uppercase tracking-[0.18em] backdrop-blur">
                 Website — Vienna Mitte Clinic
               </figcaption>
             </figure>
-            <figure className="group relative overflow-hidden rounded-2xl">
+            <figure className="group relative overflow-hidden rounded-2xl bg-surface/50 min-h-[250px]">
               <img
                 src={work3}
                 alt="Project: local SEO campaign for a Zurich business"
@@ -331,11 +319,11 @@ function Index() {
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <figcaption className="absolute bottom-4 left-4 rounded-full bg-background/80 px-4 py-2 text-[0.65rem] uppercase tracking-[0.18em] backdrop-blur">
+              <figcaption className="absolute bottom-6 left-6 rounded-full bg-background/90 px-4 py-2.5 text-[0.65rem] font-medium uppercase tracking-[0.18em] backdrop-blur">
                 Local SEO — Zurich
               </figcaption>
             </figure>
-            <figure className="group relative overflow-hidden rounded-2xl">
+            <figure className="group relative overflow-hidden rounded-2xl bg-surface/50 min-h-[250px]">
               <img
                 src={aboutBlocks}
                 alt="Project: Google Ads campaign for a Munich retailer"
@@ -344,7 +332,7 @@ function Index() {
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <figcaption className="absolute bottom-4 left-4 rounded-full bg-background/80 px-4 py-2 text-[0.65rem] uppercase tracking-[0.18em] backdrop-blur">
+              <figcaption className="absolute bottom-6 left-6 rounded-full bg-background/90 px-4 py-2.5 text-[0.65rem] font-medium uppercase tracking-[0.18em] backdrop-blur">
                 Google Ads — Munich Retail
               </figcaption>
             </figure>
