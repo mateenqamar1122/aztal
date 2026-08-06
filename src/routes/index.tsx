@@ -411,7 +411,7 @@ function Index() {
         <section id="contact" className="border-t border-border overflow-hidden">
           <div className="mx-auto max-w-7xl border-x border-border relative">
             <div className="absolute inset-0 z-0 pointer-events-none">
-              <StripedPattern className="stroke-foreground/5 stroke-[0.3px] [stroke-dasharray:8,4]" />
+              <StripedPattern className="stroke-foreground/5 opacity-30 stroke-[0.3px] [stroke-dasharray:8,4]" />
             </div>
             
             <div className="grid gap-12 px-5 py-20 md:grid-cols-2 md:items-start md:py-28 relative z-10">
