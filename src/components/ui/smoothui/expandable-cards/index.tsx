@@ -90,7 +90,6 @@ export default function ExpandableCards({
       >
         {cards.map((card) => (
           <motion.div
-            layout
             aria-label={`${card.title} card${selectedCard === card.id ? ", expanded" : ""}`}
             aria-selected={selectedCard === card.id}
             className={`relative mr-4 h-[300px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border bg-background shadow-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${cardClassName}`}
@@ -109,6 +108,10 @@ export default function ExpandableCards({
             }}
             animate={{
               width: selectedCard === card.id ? "500px" : "200px",
+            }}
+            transition={{
+              duration: 0.5,
+              ease: EASE_OUT_QUINT,
             }}
             tabIndex={0}
           >
@@ -134,9 +137,9 @@ export default function ExpandableCards({
                   exit={{ filter: "blur(5px)", opacity: 0, width: 0 }}
                   initial={{ filter: "blur(5px)", opacity: 0, width: 0 }}
                   transition={{
-                    duration: 0.25,
+                    duration: 0.5,
                     ease: EASE_OUT_QUINT,
-                    opacity: { delay: 0.1, duration: 0.2 },
+                    opacity: { delay: 0.1, duration: 0.4 },
                   }}
                 >
                   <motion.div
@@ -144,7 +147,7 @@ export default function ExpandableCards({
                     className="flex h-full flex-col justify-between p-8"
                     exit={{ filter: "blur(5px)", opacity: 0, x: 20 }}
                     initial={{ filter: "blur(5px)", opacity: 0, x: 20 }}
-                    transition={{ delay: 0.2, duration: 0.2, ease: EASE_OUT_QUINT }}
+                    transition={{ delay: 0.1, duration: 0.4, ease: EASE_OUT_QUINT }}
                   >
                     <p className="text-muted-foreground text-sm">
                       {card.content}
