@@ -6,13 +6,20 @@ import { Button } from "@/components/base/buttons/button";
 import { LeadForm } from "@/components/LeadForm";
 import { CircleBadge } from "@/components/CircleBadge";
 import { HeroEmailForm } from "@/components/HeroEmailForm";
+import { StripedPattern } from "@/components/ui/striped-pattern";
 
+
+import designSvg from "@/assets/Design.svg";
+import developmentSvg from "@/assets/development.svg";
+import marketingSvg from "@/assets/marketing.svg";
 
 import heroSky from "@/assets/hero-sky.svg";
 import aboutBlocks from "@/assets/about-blocks.jpg";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
+
+import ExpandableCards from "@/components/ui/smoothui/expandable-cards";
 
 const title = "Aztal — Transforming your business with digital growth";
 const description =
@@ -40,17 +47,47 @@ const steps = [
     n: "01",
     title: "Design",
     text: "Wir positionieren deine Marke, damit sie den lokalen Markt dominiert, Wettbewerber in den Schatten stellt und sofortiges Vertrauen aufbaut.",
+    image: designSvg,
   },
   {
     n: "02",
     title: "Development",
     text: "Wir entwickeln eine schnelle, vertrauenswürdige Plattform, die speziell darauf ausgelegt ist, aus Besuchern kaufbereite Kunden zu machen.",
+    image: developmentSvg,
   },
   {
     n: "03",
     title: "Marketing",
     text: "Wir starten das System und optimieren kontinuierlich deine Performance, um deine monatlichen Anfragen und Verkäufe zu maximieren.",
+    image: marketingSvg,
   },
+];
+
+const workCards = [
+  {
+    id: 1,
+    title: "Brand relaunch — Bergmann Carpentry",
+    content: "Wir messen unseren Erfolg an deinem Wachstum. Sieh, wie wir anderen Unternehmen geholfen haben, Autorität aufzubauen.",
+    image: work1,
+  },
+  {
+    id: 2,
+    title: "Website — Vienna Mitte Clinic",
+    content: "Mehr Marktanteile gewinnen und Kundenanfragen drastisch steigern.",
+    image: work2,
+  },
+  {
+    id: 3,
+    title: "Local SEO — Zurich",
+    content: "Lass kein Geld mehr auf dem Tisch liegen. Sag uns, wo dein Unternehmen feststeckt.",
+    image: work3,
+  },
+  {
+    id: 4,
+    title: "Google Ads — Munich Retail",
+    content: "Wir starten das System und optimieren kontinuierlich deine Performance, um deine monatlichen Anfragen und Verkäufe zu maximieren.",
+    image: aboutBlocks,
+  }
 ];
 
 const stats = [
@@ -70,11 +107,16 @@ const nav = [
 
 function Index() {
   const [activeFilter, setActiveFilter] = useState("Design");
+  const [selectedCard, setSelectedCard] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 border-x border-border">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95 backdrop-blur flex justify-center overflow-hidden">
+        <div className="flex-1 relative hidden xl:block">
+          <StripedPattern className="stroke-foreground/20 stroke-[0.3px] [stroke-dasharray:8,4]" />
+        </div>
+
+        <div className="flex h-16 w-full max-w-7xl shrink-0 items-center justify-between px-5 border-x border-border relative z-10 bg-background/95">
           <a href="#top" className="flex items-center gap-2 font-display text-lg font-extrabold tracking-tight">
             <img src="/logo_aztal.png" alt="Aztal Logo" className="h-7 w-auto object-contain" />
             <span>Aztal<span className="text-primary">.</span></span>
@@ -97,6 +139,10 @@ function Index() {
           >
             Kontakt
           </Button>
+        </div>
+
+        <div className="flex-1 relative hidden xl:block">
+          <StripedPattern className="stroke-foreground/20 stroke-[0.3px] [stroke-dasharray:8,4]" />
         </div>
       </header>
 
@@ -307,20 +353,7 @@ function Index() {
               >
                 {/* Visual Area */}
                 <div className="relative mb-6 h-56 w-full rounded-[1.5rem] bg-surface/50 border border-border/50 flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-50" />
-                  
-                  {/* Abstract UI/Number placeholder */}
-                  <div className="relative flex items-center justify-center w-24 h-24 rounded-full bg-background shadow-sm border border-border">
-                    <span className="font-display text-4xl font-extrabold text-foreground/20 group-hover:text-primary transition-colors">
-                      {step.n}
-                    </span>
-                  </div>
-                  
-                  {/* Decorative elements */}
-                  <div className="absolute top-4 left-4 flex gap-1.5">
-                    <div className="h-2 w-2 rounded-full bg-border" />
-                    <div className="h-2 w-2 rounded-full bg-border" />
-                  </div>
+                  <img src={step.image} alt={step.title} className="w-full h-full object-contain p-6 transition-transform duration-500 group-hover:scale-105" />
                 </div>
 
                 {/* Text Area */}
@@ -365,69 +398,27 @@ function Index() {
             </div>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3 md:grid-rows-2">
-            <figure className="group relative overflow-hidden rounded-2xl md:row-span-2 bg-surface/50 min-h-[400px]">
-              <img
-                src={work1}
-                alt="Project: brand relaunch for a carpentry business"
-                width={900}
-                height={1200}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <figcaption className="absolute bottom-6 left-6 rounded-full bg-background/90 px-4 py-2.5 text-[0.65rem] font-medium uppercase tracking-[0.18em] backdrop-blur">
-                Brand relaunch — Bergmann Carpentry
-              </figcaption>
-            </figure>
-            <figure className="group relative overflow-hidden rounded-2xl md:row-span-2 bg-surface/50 min-h-[400px]">
-              <img
-                src={work2}
-                alt="Project: website for a clinic in Vienna"
-                width={900}
-                height={1200}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <figcaption className="absolute bottom-6 left-6 rounded-full bg-background/90 px-4 py-2.5 text-[0.65rem] font-medium uppercase tracking-[0.18em] backdrop-blur">
-                Website — Vienna Mitte Clinic
-              </figcaption>
-            </figure>
-            <figure className="group relative overflow-hidden rounded-2xl bg-surface/50 min-h-[250px]">
-              <img
-                src={work3}
-                alt="Project: local SEO campaign for a Zurich business"
-                width={900}
-                height={700}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <figcaption className="absolute bottom-6 left-6 rounded-full bg-background/90 px-4 py-2.5 text-[0.65rem] font-medium uppercase tracking-[0.18em] backdrop-blur">
-                Local SEO — Zurich
-              </figcaption>
-            </figure>
-            <figure className="group relative overflow-hidden rounded-2xl bg-surface/50 min-h-[250px]">
-              <img
-                src={aboutBlocks}
-                alt="Project: Google Ads campaign for a Munich retailer"
-                width={900}
-                height={700}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <figcaption className="absolute bottom-6 left-6 rounded-full bg-background/90 px-4 py-2.5 text-[0.65rem] font-medium uppercase tracking-[0.18em] backdrop-blur">
-                Google Ads — Munich Retail
-              </figcaption>
-            </figure>
-          </div>
+          <ExpandableCards 
+            cards={workCards} 
+            className="mt-16 w-full" 
+            cardClassName="h-[400px]" 
+            selectedCard={selectedCard}
+            onSelect={setSelectedCard}
+          />
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className="grid-bg border-t border-border">
-          <div className="mx-auto grid max-w-7xl gap-12 border-x border-border px-5 py-20 md:grid-cols-2 md:items-start md:py-28">
-            <div>
-              <h2 className="text-3xl leading-[1.05] sm:text-5xl">
-                Bereit, dein Geschäft zu <span className="text-primary">skalieren</span>
-                <span className="text-primary">?</span>
+        <section id="contact" className="border-t border-border overflow-hidden">
+          <div className="mx-auto max-w-7xl border-x border-border relative">
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <StripedPattern className="stroke-foreground/5 stroke-[0.3px] [stroke-dasharray:8,4]" />
+            </div>
+            
+            <div className="grid gap-12 px-5 py-20 md:grid-cols-2 md:items-start md:py-28 relative z-10">
+              <div>
+                <h2 className="text-3xl leading-[1.05] sm:text-5xl">
+                  Bereit, dein Geschäft zu <span className="text-primary">skalieren</span>
+                  <span className="text-primary">?</span>
               </h2>
               <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
                 Lass kein Geld mehr auf dem Tisch liegen. Sag uns, wo dein Unternehmen feststeckt, und innerhalb von 24 Stunden erhältst du einen klaren, verständlichen Aktionsplan, wie wir dir beim Wachstum helfen können.
@@ -448,7 +439,8 @@ function Index() {
             </div>
             <LeadForm />
           </div>
-        </section>
+        </div>
+      </section>
       </main>
 
       <footer className="border-t border-border bg-background">
