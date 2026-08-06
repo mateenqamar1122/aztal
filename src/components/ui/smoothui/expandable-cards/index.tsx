@@ -146,7 +146,7 @@ export default function ExpandableCards({
                     initial={{ filter: "blur(5px)", opacity: 0, x: 20 }}
                     transition={{ delay: 0.2, duration: 0.2, ease: EASE_OUT_QUINT }}
                   >
-                    <p className="text-primary-foreground text-sm">
+                    <p className="text-muted-foreground text-sm">
                       {card.content}
                     </p>
                     {card.author ? (
@@ -165,7 +165,7 @@ export default function ExpandableCards({
                           <p className="font-semibold text-foreground">
                             {card.author.name}
                           </p>
-                          <p className="text-primary-foreground text-xs">
+                          <p className="text-muted-foreground text-xs">
                             {card.author.role}
                           </p>
                         </div>
