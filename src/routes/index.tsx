@@ -382,20 +382,7 @@ function Index() {
                 Wir messen unseren Erfolg an deinem Wachstum. Sieh, wie wir anderen Unternehmen geholfen haben, Autorität aufzubauen, mehr Marktanteile zu gewinnen und ihre Kundenanfragen drastisch zu steigern.
               </p>
             </div>
-            <div className="flex max-w-[22rem] flex-wrap items-center justify-end gap-3 mt-2">
-              {filters.map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setActiveFilter(f)}
-                  className={`rounded-full border px-5 py-2.5 text-center text-[0.65rem] font-medium uppercase tracking-[0.16em] transition-colors ${activeFilter === f
-                    ? "border-primary text-primary"
-                    : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
-                    }`}
-                >
-                  + {f}
-                </button>
-              ))}
-            </div>
+
           </div>
 
           <ExpandableCards 
