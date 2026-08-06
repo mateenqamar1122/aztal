@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownRight, Phone, Twitter, Instagram, Linkedin } from "lucide-react";
 
-import { Button } from "@/components/base/buttons/button";
+import SmoothButton from "@/components/ui/smoothui/smooth-button";
 import { LeadForm } from "@/components/LeadForm";
 import { CircleBadge } from "@/components/CircleBadge";
 import { HeroEmailForm } from "@/components/HeroEmailForm";
@@ -132,13 +132,13 @@ function Index() {
             </nav>
           </div>
 
-          <Button
-            href="/kontakt"
+          <SmoothButton
+            asChild
             size="sm"
             className="shrink-0 rounded-full px-6 shadow-none"
           >
-            Kontakt
-          </Button>
+            <a href="/kontakt">Kontakt</a>
+          </SmoothButton>
         </div>
 
         <div className="flex-1 relative hidden xl:block">
@@ -173,12 +173,12 @@ function Index() {
                 </p>
 
                 <div className="mt-10 flex flex-wrap items-center gap-4 relative z-10">
-                  <Button href="/kontakt" size="lg" className="rounded-full px-8 font-medium shadow-none bg-blue-600 hover:bg-blue-700 text-white">
-                    Kostenloses Erstgespräch
-                  </Button>
-                  <Button href="/system" size="lg" color="secondary" className="rounded-full px-8 font-medium bg-secondary/10 hover:bg-secondary/20 text-foreground shadow-none">
-                    Unser System entdecken
-                  </Button>
+                  <SmoothButton asChild size="lg" className="rounded-full px-8 font-medium shadow-none bg-blue-600 hover:bg-blue-700 text-white">
+                    <a href="/kontakt">Kostenloses Erstgespräch</a>
+                  </SmoothButton>
+                  <SmoothButton asChild size="lg" className="rounded-full px-8 font-medium bg-secondary/10 hover:bg-secondary/20 text-foreground shadow-none">
+                    <a href="/system">Unser System entdecken</a>
+                  </SmoothButton>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowDownRight } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { Button } from "@/components/base/buttons/button";
+import SmoothButton from "@/components/ui/smoothui/smooth-button";
 
 const services = ["Branding", "Website", "Marketing", "Everything"];
 
@@ -114,16 +114,15 @@ export function LeadForm() {
         />
       </label>
 
-      <Button
+      <SmoothButton
         type="submit"
-        size="xl"
-        isLoading={loading}
-        showTextWhileLoading
-        iconTrailing={ArrowDownRight}
+        size="lg"
+        loading={loading}
+        suffix={<ArrowDownRight className="size-5" />}
         className="mt-6 w-full rounded-full"
       >
         {loading ? "Sending…" : "Book a free intro call"}
-      </Button>
+      </SmoothButton>
       <p className="mt-3 text-center text-[0.7rem] text-muted-foreground">
         No obligation. Reply within 24 hours. GDPR compliant.
       </p>
