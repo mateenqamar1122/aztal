@@ -78,7 +78,7 @@ export default function ExpandableCards({
 
   return (
     <div
-      className={`flex w-full flex-col gap-4 overflow-scroll p-4 ${className}`}
+      className={`flex w-full flex-col gap-4 overflow-hidden p-4 ${className}`}
     >
       <div
         className="scrollbar-hide mx-auto flex overflow-x-auto pt-4 pb-8"
